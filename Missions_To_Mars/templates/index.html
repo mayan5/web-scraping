@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+ <head>
+     <title>Mars is Exciting!</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ </head>
+
+ <body>
+     <div class="container bg-light p-5">
+        <span class="rounded">
+            <div class="text-center">
+                <h2>Mission to Mars</h2>
+                <a roll="button" class="btn btn-primary" href="scrape">Scrape New Data</a>
+            </div>
+        </span>
+     </div>
+
+     <div class="container">
+        <div class="row">
+            <h3>Latest Mars News</h3>
+            <h5>{{ data.news_title }}</h5>
+            <p>{{ data.news_summary }}</p>
+        </div>
+
+        <div class="row">
+
+            <div class='col-md-7'>
+                <img src="{{ data.perseverance_image}}" alt="Cool Mars Image!">
+            </div>
+            <div class='col-md-5'>
+                {{ data.data_table|safe}}
+            </div>
+        </div>
+     </div>
+
+     <div class='container'>
+         <div class='card'>
+             <h4 class="card-header text-center">
+                 Mars Hemispheres
+             </h4>
+             <div class='card-body'>
+                 <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card p-3">
+                                <img class="card-img-top" src='{{ data.hemisphere_image_urls[0].img_url }}'>
+                                <h5 class='card-text'>{{ data.hemisphere_image_urls[0].title }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3">
+                                <img class="card-img-top" src='{{ data.hemisphere_image_urls[1].img_url }}'>
+                                <h5 class='card-text'>{{ data.hemisphere_image_urls[1].title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <div class="card p-3">
+                                <img class="card-img-top" src='{{ data.hemisphere_image_urls[2].img_url }}'>
+                                <h5 class='card-text'>{{ data.hemisphere_image_urls[2].title }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3">
+                                <img class="card-img-top" src='{{ data.hemisphere_image_urls[3].img_url }}'>
+                                <h5 class='card-text'>{{ data.hemisphere_image_urls[3].title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     
+
+ </body>
